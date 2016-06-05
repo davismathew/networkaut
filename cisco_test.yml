@@ -1,0 +1,12 @@
+---
+  - hosts: app01
+    connection : ssh
+    tasks:
+      - ios_command:
+         host : 10.10.10.120
+         username : cisco
+         password : cisco
+         commands:
+           - show version
+        register: output
+      - debug: msg="Hello World! {{ ANSIBLE_NET_USERNAME }}  here and {{ output.stdout }}"

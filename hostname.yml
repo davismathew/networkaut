@@ -1,0 +1,8 @@
+---
+  - hosts: control
+    tasks:
+      - command: ls -l
+        register: output
+      - debug: msg="Hello World! "
+      - copy: content="{{ output }}" dest=/Users/davis.kuriakose/Documents/Ansible/out1.html
+
